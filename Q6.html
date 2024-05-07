@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Employee Registration</title>
+</head>
+<body>
+
+<h2>Employee Registration Form</h2>
+
+<form id="employeeForm" onsubmit="return validateForm()">
+    <label for="firstName">First Name:</label><br>
+    <input type="text" id="firstName" name="firstName" required><br>
+
+    <label for="lastName">Last Name:</label><br>
+    <input type="text" id="lastName" name="lastName" required><br>
+
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="phone">Phone:</label><br>
+    <input type="tel" id="phone" name="phone" required><br>
+
+    <label for="dob">Date of Birth:</label><br>
+    <input type="date" id="dob" name="dob" required><br>
+
+    <label for="gender">Gender:</label><br>
+    <input type="radio" id="male" name="gender" value="male" required>
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label><br>
+
+    <label for="department">Department:</label><br>
+    <select id="department" name="department" required>
+        <option value="">Select department</option>
+        <option value="CS">CS</option>
+        <option value="IT">IT</option>
+        <option value="ICB">ICB</option>
+    </select><br>
+
+    <label for="designation">Designation:</label><br>
+    <input type="text" id="designation" name="designation" required><br>
+
+    <input type="submit" value="Register">
+</form>
+
+<script>
+function validateForm() {
+    var firstName = document.getElementById("firstName").value;
+    var lastName = document.getElementById("lastName").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+    var dob = document.getElementById("dob").value;
+    var gender = document.querySelector('input[name="gender"]:checked');
+    var department = document.getElementById("department").value;
+    var designation = document.getElementById("designation").value;
+
+    if (firstName === "" || lastName === "" || email === "" || phone === "" || dob === "" || !gender || department === "" || designation === "") {
+        alert("Please fill in all fields");
+        return false;
+    }
+
+    alert("Employee registered successfully!\n\nFirst Name: " + firstName + "\nLast Name: " + lastName + "\nEmail: " + email + "\nPhone: " + phone + "\nDate of Birth: " + dob + "\nGender: " + gender.value + "\nDepartment: " + department + "\nDesignation: " + designation);
+    return true;
+}
+</script>
+
+</body>
+</html>

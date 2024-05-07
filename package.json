@@ -1,0 +1,16 @@
+{
+  "name": "wadl-pracs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Q22.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"nodemon Q26.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

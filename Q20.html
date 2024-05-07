@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Cookies</title>
+<script>
+    // Function to set a cookie
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+
+    // Function to get a cookie
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var cookies = document.cookie.split(';');
+        for(var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i];
+            while (cookie.charAt(0) == ' ') {
+                cookie = cookie.substring(1, cookie.length);
+            }
+            if (cookie.indexOf(nameEQ) == 0) {
+                return cookie.substring(nameEQ.length, cookie.length);
+            }
+        }
+        return null;
+    }
+
+    // Function to handle setting and getting cookies
+    function handleCookies() {
+        var cookieName = "username";
+        var username = prompt("Enter your username:");
+        if (username) {
+            setCookie(cookieName, username, 30);
+            alert("Cookie set successfully!");
+        } else {
+            alert("Username cannot be empty!");
+        }
+        var storedUsername = getCookie(cookieName);
+    }
+</script>
+</head>
+<body>
+<h2>JavaScript Cookies</h2>
+<button onclick="handleCookies()">Handle Cookies</button>
+</body>
+</html>

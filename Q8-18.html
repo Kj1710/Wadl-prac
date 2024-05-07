@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JavaScript Functions</title>
+<script>
+    //Q8 Function to check if a number is positive, negative, or zero
+    function checkNumber(num) {
+        if (num > 0) {
+            return "Positive";
+        } else if (num < 0) {
+            return "Negative";
+        } else {
+            return "Zero";
+        }
+    }
+
+    //Q9 Function to check if a number is odd or even
+    function checkOddEven(num) {
+        return num % 2 === 0 ? "Even" : "Odd";
+    }
+
+    //Q10 Function to perform arithmetic operations using switch statement
+    function arithmeticOperation(operation, num1, num2) {
+        switch(operation) {
+            case 'add':
+                return num1 + num2;
+            case 'subtract':
+                return num1 - num2;
+            case 'multiply':
+                return num1 * num2;
+            case 'divide':
+                return num1 / num2;
+            default:
+                return "Invalid operation";
+        }
+    }
+
+    //Q11 Function to check if a number is palindrome
+    function isPalindrome(num) {
+        var str = num.toString();
+        return str === str.split('').reverse().join('');
+    }
+
+    //Q12 Function to print first n numbers
+    function printNumbers(n) {
+        for (var i = 1; i <= n; i++) {
+            console.log(i);
+        }
+    }
+
+    //Q13 Function to demonstrate scope of variables
+    function variableScopeDemo() {
+        var varVariable = 'var variable';
+        let letVariable = 'let variable';
+        const constVariable = 'const variable';
+        
+        console.log(varVariable); // var variable
+        console.log(letVariable); // let variable
+        console.log(constVariable); // const variable
+    }
+
+    //Q14 Function to find max number
+    function findMax(...numbers) {
+        return Math.max(...numbers);
+    }
+
+    //Q15 Function to find min number
+    function findMin(...numbers) {
+        return Math.min(...numbers);
+    }
+
+    //Q16 Function to convert Celsius to Fahrenheit
+    function celsiusToFahrenheit(celsius) {
+        return (celsius * 9/5) + 32;
+    }
+
+    //Q17 Function to change background color every 5 seconds
+    function changeBackgroundColor() {
+        var colors = ["#ff0000", "#00ff00", "#0000ff", "#ffff00", "#ff00ff"];
+        var i = 0;
+        setInterval(function() {
+            document.body.style.backgroundColor = colors[i];
+            i = (i + 1) % colors.length;
+        }, 5000);
+    }
+
+    //Q18 Function to execute all functionalities
+    function executeAll() {
+        var num1 = parseInt(prompt("Enter a number:"));
+        var num2 = parseInt(prompt("Enter another number:"));
+
+        alert("Number " + num1 + " is: " + checkNumber(num1) + "\nNumber " + num2 + " is: " + checkNumber(num2));
+        alert("Number " + num1 + " is: " + checkOddEven(num1) + "\nNumber " + num2 + " is: " + checkOddEven(num2));
+        alert("Addition: " + arithmeticOperation('add', num1, num2) + "\nSubtraction: " + arithmeticOperation('subtract', num1, num2) + "\nMultiplication: " + arithmeticOperation('multiply', num1, num2) + "\nDivision: " + arithmeticOperation('divide', num1, num2));
+        alert("Number " + num1 + " is Palindrome? " + isPalindrome(num1) + "\nNumber " + num2 + " is Palindrome? " + isPalindrome(num2));
+        printNumbers(num1);
+        variableScopeDemo();
+        alert("Max number: " + findMax(num1, num2) + "\nMin number: " + findMin(num1, num2));
+        alert(num1 + " degrees Celsius is equal to " + celsiusToFahrenheit(num1) + " degrees Fahrenheit");
+        changeBackgroundColor();
+    }
+</script>
+</head>
+<body>
+<h2>JavaScript Functions</h2>
+<button onclick="executeAll()">Execute All Functionalities</button>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiplication and Division</title>
+<script>
+    function mul(num1, num2) {
+        return num1 * num2;
+    }
+    function div(num1, num2) {
+        if (num2 !== 0) {
+            return num1 / num2;
+        } else {
+            return "Cant divide by zero!";
+        }
+    }
+    function calculate() {
+        var num1 = parseFloat(prompt("Enter the first number:"));
+        var num2 = parseFloat(prompt("Enter the second number:"));
+        var mr = mul(num1, num2);
+        var dr = div(num1, num2);
+
+        alert("Multiplication Result: " + mr + "\nDivision Result: " + dr);
+    }
+</script>
+</head>
+<body>
+<h2>Multiplication and Division</h2>
+<button onclick="calculate()">Calculate</button>
+</body>
+</html>

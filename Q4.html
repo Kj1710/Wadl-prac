@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculator</title>
+<style>
+    .calculator {
+        width: 250px;
+        margin: 50px auto;
+        border: 1px solid ;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    input[type="button"] {
+        width: 45px;
+        height: 45px;
+        margin: 5px;
+        font-size: 20px;
+        border: 1px solid ;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    input[type="text"] {
+        width: 90%;
+        margin-bottom: 10px;
+        padding: 5px;
+        font-size: 20px;
+        border: 1px solid ;
+        border-radius: 5px;
+    }
+</style>
+</head>
+<body>
+<div class="calculator">
+    <input type="text" id="result" readonly>
+    <input type="button" value="7" onclick="addToResult('7')">
+    <input type="button" value="8" onclick="addToResult('8')">
+    <input type="button" value="9" onclick="addToResult('9')">
+    <input type="button" value="/" onclick="addToResult('/')">
+    <br>
+    <input type="button" value="4" onclick="addToResult('4')">
+    <input type="button" value="5" onclick="addToResult('5')">
+    <input type="button" value="6" onclick="addToResult('6')">
+    <input type="button" value="*" onclick="addToResult('*')">
+    <br>
+    <input type="button" value="1" onclick="addToResult('1')">
+    <input type="button" value="2" onclick="addToResult('2')">
+    <input type="button" value="3" onclick="addToResult('3')">
+    <input type="button" value="-" onclick="addToResult('-')">
+    <br>
+    <input type="button" value="0" onclick="addToResult('0')">
+    <input type="button" value="." onclick="addToResult('.')">
+    <input type="button" value="=" onclick="calculate()">
+    <input type="button" value="+" onclick="addToResult('+')">
+    <br>
+    <input type="button" value="C" onclick="clearResult()">
+</div>
+<script>
+    function addToResult(value) {
+        document.getElementById('result').value += value;
+    }
+
+    function clearResult() {
+        document.getElementById('result').value = '';
+    }
+
+    function calculate() {
+        try {
+            var result = eval(document.getElementById('result').value);
+            document.getElementById('result').value = result;
+        } catch (error) {
+            document.getElementById('result').value = 'Error';
+        }
+    }
+</script>
+</body>
+</html>
