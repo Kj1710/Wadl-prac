@@ -3,37 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Form Validation</title>
-<style>
-    .error {
-        color: red;
-    }
-</style>
-</head>
-<body>
-<h2>Form Validation</h2>
-<form id="myForm" onsubmit="return ValidateEmail()">
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email"><br>
-    <span id="emailError" class="error"></span><br>
-    <input type="submit" value="Submit">
-</form>
-
+<title>Email Validation</title>
 <script>
-function ValidateEmail() {
+function validateEmail() {
     var email = document.getElementById("email").value;
-    var emailError = document.getElementById("emailError");
-    var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    var alphanumericRegex = /[a-zA-Z0-9]/;
+    var specialCharacterRegex = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/;
 
-    if (email.match(validRegex)) {
-        emailError.textContent = "";
-        return true;
-    } else {
-        emailError.textContent = "Invalid email address!";
-        document.getElementById("email").focus();
+    if (email.length < 10) {
+        alert("Email must be at least 10 characters long.");
         return false;
     }
+
+    if (!alphanumericRegex.test(email) || !specialCharacterRegex.test(email)) {
+        alert("Email must include at least one alphanumeric character and one special character.");
+        return false;
+    }
+
+    return true;
 }
 </script>
+</head>
+<body>
+<h2>Email Validation</h2>
+<form onsubmit="return validateEmail()">
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required>
+    <button type="submit">Submit</button>
+</form>
 </body>
 </html>
