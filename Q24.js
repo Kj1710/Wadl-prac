@@ -4,7 +4,7 @@ const app = express();
 // Sample data
 const names = ['Alice', 'Bob', 'Charlie', 'David'];
 
-// Endpoint to serve client HTML
+
 app.get('/', (req, res) => {
     res.send(`
         <!DOCTYPE html>

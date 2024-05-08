@@ -1,22 +1,17 @@
-const http = require('http');
-const fs = require('fs');
+7,29,30
 
-// Create an HTTP server
+
+const http = require('http');
+
 const server = http.createServer((request, response) => {
-    // Read the requested file
-    fs.readFile('Q1.html', (err, data) => {
-        if (err) {
-            // Handle error if file not found
-            response.writeHead(404, {'Content-Type': 'text/html'});
-            return response.end("404 Not Found");
-        }  
-        // Send the requested file as response
-        response.writeHead(200, {'Content-Type': 'text/html'});
-        response.write(data);
-        return response.end();
-    });
+  // Redirect to www.google.com
+  response.writeHead(302, {
+    'Location': 'http://www.google.com'
+  });
+  response.end();
 });
 
-// Listen on port 8081
-server.listen(8081);
-console.log('Server running at http://127.0.0.1:8081/');
+const PORT = 8081;
+server.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
